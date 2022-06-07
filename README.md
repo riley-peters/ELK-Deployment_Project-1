@@ -139,7 +139,7 @@ SSH into the control node and follow the steps below:
 These commands provided below will help you download and run the various playbooks stated above, as well as steps to update the configuration files with your needed IPs.
 - Downloading the docker playbook for Web VM configuration:
 
-   `curl -o docker-setup.yml https://raw.githubusercontent.com/riley-peters/cyber-portfolio/main/Ansible/docker-setup.yml?token=GHSAT0AAAAAABVCTVVIWH6WFM6AFSWAFYOOYU65XPQ`
+   `curl -o docker-setup.yml https://raw.githubusercontent.com/riley-peters/Portfolio-Cybersecurity/main/Ansible/docker-setup.yml?token=GHSAT0AAAAAABVCTVVJNCO5HYDTRIPRPK36YU665PQ`
   
   Do this step inside the Ansible container running on the JumpBox machine. Ensure the Web VM private IPs have been added to the ansible `hosts` file prior.
   Steps to do this are detailed above in **Using the Playbook**.
@@ -147,14 +147,14 @@ These commands provided below will help you download and run the various playboo
 - Downloading the ELK playbook:
   Run the command to download the YAML file to your current directory under the name `ELK-setup.yml`.
   
-   `curl -o ELK-setup.yml https://raw.githubusercontent.com/riley-peters/cyber-portfolio/main/Ansible/ELK-setup.yml?token=GHSAT0AAAAAABVCTVVJMOXP6XSYV4UNJIYCYU64EQQ`
+   `curl -o ELK-setup.yml https://raw.githubusercontent.com/riley-peters/Portfolio-Cybersecurity/main/Ansible/ELK-setup.yml?token=GHSAT0AAAAAABVCTVVJ77IO4UELCRYXQ57CYU666FA`
   
   Store the playbook at `/etc/ansible/files`.
 
 - Downloading the Filebeat/Metricbeat playbook:
   Run the command to download the YAML file to your current directory under the name `filebeat-metricbeat-setup.yml`.
   
-   `curl -o filebeat-metricbeat-setup.yml https://raw.githubusercontent.com/riley-peters/cyber-portfolio/main/Ansible/filebeat-metricbeat-setup.yml?token=GHSAT0AAAAAABVCTVVIJMDBACKMQCLMVNBYYU64M7Q`
+   `curl -o filebeat-metricbeat-setup.yml https://raw.githubusercontent.com/riley-peters/Portfolio-Cybersecurity/main/Ansible/filebeat-metricbeat-setup.yml?token=GHSAT0AAAAAABVCTVVJM2T6CC7QF2N7W3I2YU666WQ`
   
   Store the playbook at `/etc/ansible/roles`.
 
