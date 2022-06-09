@@ -99,7 +99,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![docker ps on ELK VM](Images/ELKstackContainerRunning.png)
+![docker ps on ELK VM](Images/Screenshots/ELKstackContainerRunning.png)
 
 ---
 
@@ -133,17 +133,17 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to `http://{ELK VM Public IP}:5601/app/kibana` to check that the installation worked as expected. The page should
   look like this:
 
-![kibanadash](Images/KibanaDashboard.png)
+![kibanadash](Images/Screenshots/KibanaDashboard.png)
 
 - Once on this page, to access data and metrics being recorded by Filebeat and Metricbeat, click **Add log data** or **Add metric data** and
   select either **System Logs** for Filebeat or **Docker Metrics** for Metricbeat. Then simply click **Check Data** at the bottom to navigate to
   your data. If all is functional, you should be taken to this screen for the system logs:
 
-![kibanafilebeatdata](Images/KibanaDashboardFB.png)
+![kibanafilebeatdata](Images/Screenshots/KibanaDashboardFB.png)
 
   And then like this for your docker metrics:
 
-![kibanametricbeatdata](Images/KibanaDashboardMB.png)
+![kibanametricbeatdata](Images/Screenshots/KibanaDashboardMB.png)
 
 ---
 
@@ -188,9 +188,9 @@ These commands provided below will help you download and run the various playboo
 Below is a set of questions focused around the Kibana sample data. Answers will differ depending on when you complete the investigation but it provides a good tour and
 look through the multiple sets of data and graphs that Kibana can provide. Using the Kibana dashboard, navigate to "Add Sample Data" and ensure you add the sample **web** logs.
 
-![addsampledata](Images/KibanaSampleData.png)
+![addsampledata](Images/Screenshots/KibanaSampleData.png)
 
-![investigationquestions](Images/SampleDataQuestions.png)
+![investigationquestions](Images/Screenshots/SampleDataQuestions.PNG)
 
 **From here, use the questions above to carry out your investigation.**
 
