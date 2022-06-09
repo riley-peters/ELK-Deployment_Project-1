@@ -1,5 +1,5 @@
-# Cyber Portfolio - Project 1 - ELK Deployment
-A repository serving as a location to house all scripts, playbooks and projects worked on during the completion of the Cybersecurity Bootcamp with the University of Sydney. For now, this repository is dedicated to **Project 1** files. Once new content is added, the **Project 1** files will be stored in their own directory in `main`. A second repository will also be made containing all notes and summaries for each week's class content.
+## Cyber Portfolio - Project 1 - ELK Deployment
+A repository serving as a location to house all scripts, playbooks and projects worked on during the completion of the Cybersecurity Bootcamp with the University of Sydney. NOTE: For now, this repository is dedicated to **Project 1** files. Once new content is added, the **Project 1** files will be stored in their own directory in `main`. A second repository will also be made containing all notes and summaries for each week's class content.
 
 # **Automated ELK Stack Deployment**
 
@@ -21,7 +21,8 @@ docker. If details are needed on how to set up these machines, contact the repos
 
 Additional scripts have been provided in the Linux directory. These simple scripts are not necessary to run, but can perform helpful system 
 administration, cleanup, and update tasks in a Linux environment. Also included is very a basic Lynis script combination, which can perform
-either full or partial system audits.
+either full or partial system audits. On top of this, a section has been included detailing a small investigation done on Kibana using the 
+sample data provided by the application. These samples can be helpful to look through as it can show how to use and interpret data on Kibana.
 
 This document contains the following details:
 - Description of the Topology
@@ -30,7 +31,8 @@ This document contains the following details:
   - Beats in Use
   - Machines Being Monitored
 - How to Use the Ansible Build
-
+- Helpful Commands
+- Kibana Samples
 
 ### **Description of the Topology**
 
@@ -128,10 +130,20 @@ SSH into the control node and follow the steps below:
 - Update the config file to include your ELK VMs private IP and the Elasticsearch login (default). Follow Filebeat/Metricbeat official config guide.
 - Update the `hosts` file for Ansible, located at `/etc/ansible/`. Include IP for Web VMs under `[webservers]` as well as create `[elk]` and add
   the ELK VM's internal IP underneath.
-- Run the playbook, and navigate to `http://{ELK VM Public IP}:5601/app/kibana` to check that the installation worked as expected.
+- Run the playbook, and navigate to `http://{ELK VM Public IP}:5601/app/kibana` to check that the installation worked as expected. The page should
+  look like this:
+
+![kibanadash](Images/KibanaDashboard.png)
+
 - Once on this page, to access data and metrics being recorded by Filebeat and Metricbeat, click **Add log data** or **Add metric data** and
   select either **System Logs** for Filebeat or **Docker Metrics** for Metricbeat. Then simply click **Check Data** at the bottom to navigate to
-  your data.
+  your data. If all is functional, you should be taken to this screen for the system logs:
+
+![kibanafilebeatdata](Images/KibanaDashboardFB.png)
+
+  And then like this for your docker metrics:
+
+![kibanametricbeatdata](Images/KibanaDashboardMB.png)
 
 ---
 
@@ -169,3 +181,22 @@ These commands provided below will help you download and run the various playboo
   Once this is complete, the playbook **"filebeat-metricbeat-setup.yml"** is ready to be run with this command:
   `ansible-playbook /etc/ansible/roles/filebeat-metricbeat-setup.yml`
   It is now possible to check whether Kibana is receiving log and metric data. Steps to do this are detailed above in **Using the Playbook**.
+
+---
+
+### Kibana Sample Data
+Below is a set of questions focused around the Kibana sample data. Answers will differ depending on when you complete the investigation but it provides a good tour and
+look through the multiple sets of data and graphs that Kibana can provide. Using the Kibana dashboard, navigate to "Add Sample Data" and ensure you add the sample **web** logs.
+
+![addsampledata](Images/KibanaSampleData.png)
+
+![investigationquestions](Images/SampleDataQuestions.png)
+
+**From here, use the questions above to carry out your investigation.**
+
+When completing the investigation with the class (02/06/2022), Kibana was able to uncover and visulise some unusual web logs, showing that a user was attempting to, and succeeding, to
+download an **RPM** file relating to the setup of metricbeat. **RPM**, or Red-Hat Package Manager, is a file type used to store installation packages on Linux machines. On
+top of this, the referer URL appeared to be a persons Facebook page, with the traffic activity originating from a Windows 8 machine in India (IN). Kibana was even able to
+give somewhat accurate latitude and longitude values for the activity. The RPM file was being downloaded from a server located in China (CN) and this data only stood out
+because it was the highest byte activity in the past seven days. While the file itself _appears_ to not be suspicious, and is a commonly downloaded file, we cannot see the
+contents of the file and whether or not it is malicous. However from the data given in Kibana, it would seem this activity is normal user behaviour.
