@@ -1,5 +1,5 @@
-## Cyber Portfolio - Project 1 - ELK Deployment
-A repository serving as a location to house all scripts, playbooks and projects worked on during the completion of the Cybersecurity Bootcamp with the University of Sydney. NOTE: For now, this repository is dedicated to **Project 1** files. Once new content is added, the **Project 1** files will be stored in their own directory in `main`. A second repository will also be made containing all notes and summaries for each week's class content.
+## Project 1 - ELK Deployment
+From the repository serving as a location to house all scripts, playbooks and projects worked on during the completion of the Cybersecurity Bootcamp with the University of Sydney. This repository is dedicated to **Project 1** files. 
 
 # **Automated ELK Stack Deployment**
 
